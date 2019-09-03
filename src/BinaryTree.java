@@ -4,14 +4,99 @@ public class BinaryTree {
 
     public BinaryTree() { }
 
-    public String getTreeString()
+    /**
+     * Adds the number to the tree.
+     *
+     * @param num the num being added
+     */
+    public void add(int num)
     {
-        String tree = new String();
-        tree +=
+        if (_root == null)
+        {
+            _root = new Node(num);
+        }
+        else if (_root.number == num)
+        {
+            return;
+        }
+        else
+        {
+            if (num < _root.number)
+            {
+                add(_root.left, _root, num);
+            }
+            else
+            {
+                add(_root.left, _root, num);
+            }
+        }
     }
 
-    private String getTreeString(String tree)
+    private void add(Node node, Node parent, int num)
     {
-        
+        if (node == null)
+        {
+            parent.left = new Node(num);
+        }
+        else if (num < node.number)
+        {
+            add(node.left, node, num);
+        }
+        else if (num > node.number)
+        {
+            add(node.right, node, num);
+        }
+    }
+
+    /**
+     * Returns a string representing the shape of the binary tree. If there is no root node, null is returned.
+     *
+     * @return the string representation of the binary tree
+     */
+    public String getTreeShapeString()
+    {
+        if (_root != null)
+        {
+            StringBuilder tree = new StringBuilder("C");
+            getTreeShapeString(tree, _root);
+            return tree.toString();
+        }
+        return "";
+    }
+
+    /**
+     * Returns a string representing the shape of the binary tree. If there is no root node, null is returned.
+     *
+     * @return the string representation of the binary tree
+     */
+    private void getTreeShapeString(StringBuilder tree, Node node)
+    {
+        if (node == null)
+        {
+            tree.append("N");
+            return;
+        }
+
+        if (node.left != null)
+        {
+            tree.append("L");
+        }
+        getTreeShapeString(tree, node.left);
+
+        if (node.right != null)
+        {
+            tree.append("R");
+        }
+        getTreeShapeString(tree, node.right);
+    }
+
+    /**
+     * Sets the root on the binary tree.
+     *
+     * @param root the new root of the tree
+     */
+    public void setRoot(Node root)
+    {
+        _root = root;
     }
 }

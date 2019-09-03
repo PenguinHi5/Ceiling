@@ -1,34 +1,19 @@
 public class Node {
 
-    private Node _left;
-    private Node _right;
+    public Node left;
+    public Node right;
+    public int number;
 
-    public Node() { }
-
-    public Node(Node left, Node right)
+    public Node(int number)
     {
-        _left = left;
-        _right = right;
+        this.number = number;
     }
 
-    public void setLeft(Node node)
+    public Node(int number, Node left, Node right)
     {
-        _left = node;
-    }
-
-    public void setRight(Node node)
-    {
-        _right = node;
-    }
-
-    public Node getLeft()
-    {
-        return _left;
-    }
-
-    public Node getRight()
-    {
-        return _right;
+        this.left = left;
+        this.right = right;
+        this.number = number;
     }
 
 }

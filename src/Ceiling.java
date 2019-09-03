@@ -2,6 +2,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * @author Preston Brown
+ * CS 4150 Algorithms
+ * Ceiling Function
+ */
 public class Ceiling {
 
     public static void main(String[] args)

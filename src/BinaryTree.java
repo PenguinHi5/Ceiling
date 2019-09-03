@@ -1,3 +1,8 @@
+/**
+ * @author Preston Brown
+ * CS 4150 Algorithms
+ * Ceiling Function
+ */
 public class BinaryTree {
 
     private Node _root;

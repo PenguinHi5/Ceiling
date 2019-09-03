@@ -1,3 +1,8 @@
+/**
+ * @author Preston Brown
+ * CS 4150 Algorithms
+ * Ceiling Function
+ */
 public class Node {
 
     public Node left;

@@ -25,7 +25,7 @@ public class Ceiling {
             contents[i] = input;
         }
 
-        System.out.println(runCeiling(contents));
+        System.out.println(runCeiling(n, k, contents));
     }
 
     /**
@@ -34,9 +34,9 @@ public class Ceiling {
      * @param contents all of the binary trees
      * @return the number of uniquely shaped ceiling designs
      */
-    public static int runCeiling(String[] contents)
+    public static int runCeiling(int n, int k, String[] contents)
     {
-        HashSet<String> treeShapeSet = new HashSet<>();
+        HashSet<String> treeShapeSet = new HashSet<>(n);
 
         for (String nums : contents)
         {

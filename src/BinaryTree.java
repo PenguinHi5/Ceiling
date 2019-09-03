@@ -2,7 +2,10 @@ public class BinaryTree {
 
     private Node _root;
 
-    public BinaryTree() { }
+    public BinaryTree()
+    {
+
+    }
 
     /**
      * Adds the number to the tree.
@@ -23,29 +26,36 @@ public class BinaryTree {
         {
             if (num < _root.number)
             {
-                add(_root.left, _root, num);
+                add(_root, num);
             }
             else
             {
-                add(_root.left, _root, num);
+                add(_root, num);
             }
         }
     }
 
-    private void add(Node node, Node parent, int num)
+    private boolean add(Node node, int num)
     {
         if (node == null)
         {
-            parent.left = new Node(num);
+            return true;
         }
         else if (num < node.number)
         {
-            add(node.left, node, num);
+            if (add(node.left, num))
+            {
+                node.left = new Node(num);
+            }
         }
         else if (num > node.number)
         {
-            add(node.right, node, num);
+            if (add(node.right, num))
+            {
+                node.right = new Node(num);
+            }
         }
+        return false;
     }
 
     /**

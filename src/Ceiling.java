@@ -19,10 +19,31 @@ public class Ceiling {
             input = scanner.nextLine();
             contents[i] = input;
         }
+
+        System.out.println(runCeiling(contents));
     }
 
-    public static void runCeiling(int n, int k, String[] contents)
+    /**
+     * Runs the ceiling algorithm and returns the number of different tree shapes.
+     *
+     * @param contents all of the binary trees
+     * @return the number of uniquely shaped ceiling designs
+     */
+    public static int runCeiling(String[] contents)
     {
+        HashSet<String> treeShapeSet = new HashSet<>();
 
+        for (String nums : contents)
+        {
+            BinaryTree tree = new BinaryTree();
+            for (String numString : nums.split(" "))
+            {
+                int num = Integer.parseInt(numString);
+                tree.add(num);
+            }
+            treeShapeSet.add(tree.getTreeShapeString());
+        }
+
+        return treeShapeSet.size();
     }
 }
